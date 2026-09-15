@@ -6,7 +6,7 @@ If you've worked MSSP-side, in-house SOC-with-a-CISO-above-you, or even just a l
 
 ## The Flow
 
-```
+```text
 1. SOC IDENTIFIES ISSUE        (analyst or engineer flags noise, gap, or FP pattern)
         │
 2. SOC COLLECTS EVIDENCE       (alert volume, FP rate, root cause, sample events)

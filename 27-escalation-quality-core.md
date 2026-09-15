@@ -46,7 +46,7 @@ The three pairs below show the same underlying alert, worked twice: once as a re
 
 **Bad escalation:**
 
-```
+```text
 Ticket: Multiple failed logins detected on account jsmith
 Priority: Medium
 Notes: SIEM fired an alert for brute force. Recommend resetting password.
@@ -76,7 +76,7 @@ Notes: SIEM fired an alert for brute force. Recommend resetting password.
 
 **Bad escalation:**
 
-```
+```text
 Ticket: Kerberoasting alert - svc_sql account
 Priority: High
 Notes: Ticket encryption looks weak, might be an attack tool.
@@ -104,7 +104,7 @@ Notes: Ticket encryption looks weak, might be an attack tool.
 
 **Bad escalation:**
 
-```
+```text
 Ticket: PowerShell alert on host FIN-LT-22
 Priority: Medium
 Notes: Encoded PowerShell command seen, looks suspicious.

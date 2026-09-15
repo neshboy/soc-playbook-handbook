@@ -116,7 +116,7 @@ steps:
 
 The approval message that actually lands in front of the IR lead should look like this, not a bare "approve/deny":
 
-```
+```text
 ⚠ APPROVAL REQUIRED — CRITICAL
 Asset: DC-EU-01 (Tier 0, EU primary domain controller)
 Detected: LSASS memory access (T1003.001) + AD replication request

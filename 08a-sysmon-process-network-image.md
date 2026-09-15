@@ -26,7 +26,7 @@ One operational note before the per-ID detail: Sysmon assigns each process a `Pr
 
 **Normal vs suspicious:** `winword.exe` spawning `splwow64.exe` for printing — normal. `winword.exe` spawning `powershell.exe -enc <base64>` with a parent command line showing the doc was opened from a Downloads folder — that's the classic macro-dropper chain and worth immediate attention. Same logic applies to `wscript.exe`/`mshta.exe`/`rundll32.exe` appearing as children of Office apps or browsers.
 
-```
+```text
 Image: C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe
 ParentImage: C:\Program Files\Microsoft Office\root\Office16\WINWORD.EXE
 ParentCommandLine: "WINWORD.EXE" /n "C:\Users\jmartinez\Downloads\Invoice_4471.docm"
@@ -63,7 +63,7 @@ User: CORP\jmartinez
 
 **Normal vs suspicious:** `chrome.exe` connecting to port 443 on a CDN IP — background noise, not worth alerting on in isolation. `sqlservr.exe` or `svchost.exe` initiating an outbound connection to an unfamiliar external IP on port 443 or 8443 with no corresponding update/patch activity — that's the shape of a beacon, especially if it repeats on a suspiciously regular interval.
 
-```
+```text
 Image: C:\Windows\System32\svchost.exe
 User: NT AUTHORITY\SYSTEM
 Protocol: tcp
@@ -141,7 +141,7 @@ Initiated: true
 
 **Normal vs suspicious:** Extremely narrow "normal" band — mostly known debugging/monitoring tools and some legitimate EDR internals. Anything else — a script interpreter, an Office process, or an unrecognized binary creating a remote thread in `explorer.exe`, a browser, or worse, `lsass.exe` — should be treated as classic process-injection behavior until proven otherwise.
 
-```
+```text
 SourceImage: C:\Users\Public\update.exe
 TargetImage: C:\Windows\explorer.exe
 StartModule: unknown
@@ -170,7 +170,7 @@ StartModule: unknown
 
 **Normal vs suspicious:** Plenty of legitimate processes open handles to `lsass.exe` with minimal, query-only access (some AV/EDR agents, certain system utilities) — that's expected background noise you'll need to baseline out. An unsigned or unfamiliar process requesting broad memory-read access to `lsass.exe`, especially anything resembling known credential-access tooling behavior, is a different story entirely and should route straight to an analyst, not a queue.
 
-```
+```text
 SourceImage: C:\Users\Public\svhost.exe
 TargetImage: C:\Windows\System32\lsass.exe
 GrantedAccess: 0x1FFFFF

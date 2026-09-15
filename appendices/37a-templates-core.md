@@ -10,7 +10,7 @@ A blank template is only useful if people actually fill in the boring fields (Ow
 
 *Use this version for a full treatment playbook — a detection with real investigative depth, decision points, and containment authority attached to it. Lighter-weight variants (tuning-only playbooks, informational-alert playbooks) can drop some fields, but this is the canonical full set. Fill every field; write "N/A — not applicable because..." rather than leaving it blank, so a reviewer can tell "blank" from "considered and excluded."*
 
-```
+```text
 Playbook ID:                 [e.g., PB-EDR-0042]
 Playbook Name:                
 Version:                      [semantic version, e.g., 1.3.0]
@@ -91,7 +91,7 @@ Revision History:
 
 *Written for people who were not on the incident call and don't need the raw log lines. One page, no jargon that hasn't been defined. This is the version that goes to a business unit lead, legal, or an executive sponsor — not the SOC lead, who gets the full investigation record.*
 
-```
+```text
 Incident Reference:            [ticket/case ID]
 Date/Time of Summary:          [YYYY-MM-DD HH:MM, timezone]
 Prepared By:                    
@@ -138,7 +138,7 @@ Contact for Questions:
 
 *The analyst's working record. This is the artifact that gets reviewed in QA, cited in the post-incident review, and occasionally subpoenaed. Write it as you go, not from memory after the fact — reconstructed timelines are where inconsistencies creep in.*
 
-```
+```text
 Case ID:                        
 Playbook Applied:               [Playbook ID + Version]
 Analyst:                        
@@ -213,7 +213,7 @@ Review Date:
 
 *Used the moment a case crosses the escalation criteria defined in the playbook — moving from analyst-level triage to IR lead, secondary SOC, threat hunt team, or outside the SOC entirely (legal, executive, third-party IR retainer). Fill this out at the point of escalation, not after the fact.*
 
-```
+```text
 Case ID:                        
 Escalating Analyst:              
 Escalation Timestamp:             [YYYY-MM-DD HH:MM TZ]

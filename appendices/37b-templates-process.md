@@ -121,7 +121,7 @@ For any deviation from standard control or policy — a system that can't be pat
 
 The standard structure for closing out an investigated alert. This is the artifact that gets pulled during an audit, a post-incident review, or six months later when someone asks "did we ever look at this before?"
 
-```
+```text
 Case ID:                  [SIEM/SOAR case number]
 Analyst:                  [name / handle]
 Date Opened / Closed:     [YYYY-MM-DD HH:MM UTC] / [YYYY-MM-DD HH:MM UTC]

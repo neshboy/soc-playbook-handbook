@@ -108,7 +108,7 @@ Analysts from an APT background expect a rich persistence footprint. In ransomwa
 
 **[ENGINEERING]** - Correlate on host + narrow time window rather than treating 7045/4697 as standalone high-fidelity:
 
-```
+```text
 event.code in (7045, 4697)
 | where ImagePath matches (".*\\Temp\\.*", ".*\\ProgramData\\.*", "\\\\\\\\.*\\\\.*\\.exe")
    or ImagePath !contains VendorPathAllowlist
@@ -124,7 +124,7 @@ Between first foothold and the encryptor hitting file servers, there's usually a
 
 **[ANALYST]** - AdFind (and lookalikes — SharpHound, custom LDAP wrappers) remains the most common bulk-AD-recon tool, because it's fast, static, and doesn't need reflection tricks some EDR products flag:
 
-```
+```text
 adfind.exe -f "(objectcategory=person)" -csv > users.csv
 adfind.exe -sc trustdmp
 adfind.exe -f "(objectClass=group)" -csv > groups.csv
@@ -134,7 +134,7 @@ adfind.exe -f "(objectClass=group)" -csv > groups.csv
 
 **[ENGINEERING]** - Sysmon 1 always captures the full command line regardless of 4688 audit policy — hunt substrings (`objectcategory=`, `trustdmp`) combined with hash allowlisting of known builds. Cross-reference 4798/4799 — a single source workstation generating dozens of local-group-membership enumerations across multiple targets in a short window is a strong signal independent of tool attribution, since it also catches PowerShell-native variants that never touch disk. For port/service discovery, Sysmon 3 is the workhorse:
 
-```
+```text
 Sysmon EventID=3 | where DestinationPort in (445, 3389, 5985, 5986)
 | summarize DistinctDest=dcount(DestinationIp) by SourceIp, Image, bin(TimeGenerated, 5m)
 | where DistinctDest > 15
@@ -152,7 +152,7 @@ Don't anchor detection purely on the LSASS handle — plenty of intrusions go st
 
 **[ENGINEERING]** -
 
-```
+```text
 EventID=10
 TargetImage="*\\lsass.exe"
 GrantedAccess IN ("0x1410","0x1010","0x1438","0x143a","0x1fffff")
@@ -201,7 +201,7 @@ Operators go after security tooling through repeatable mechanisms: **service-lev
 
 **[ENGINEERING]** -
 
-```
+```text
 alert when:
   EventID == 1102
   AND Subject.AccountName NOT IN (approved_log_admin_accounts)
@@ -222,7 +222,7 @@ By 2026, most professional affiliates run double extortion by default: backups c
 
 **Volume indicators.** Where full process attribution isn't available, proxy/NetFlow still shows sustained high-volume outbound transfer from a host with no reason to be a top talker (a file server, off-hours, under a service account):
 
-```
+```text
 netflow | where direction == "outbound"
 | summarize bytes_out = sum(bytes) by src_host, bin(time, 15m)
 | where bytes_out > baseline_p99 and dest_asn !in (corporate_cloud_allowlist)
@@ -240,7 +240,7 @@ By the time file content is actually changing on disk, the incident has moved pa
 
 **Mass rename/extension-change.** Most encryptors read the original file, write encrypted content to a temp file, delete the original, then rename to a new extension — a paired **FileCreate → FileDelete** fingerprint at high volume from one process across many directories in a short window. **[ANALYST]** - Normal is a handful of creates/deletes per minute in one or two directories; suspicious is hundreds to thousands per minute across multiple drives and shares, including files the user has no reason to touch. **[ENGINEERING]** -
 
-```
+```text
 Sysmon | where EventID in (11, 23) and TimeGenerated > ago(5m)
 | extend Directory = substring(TargetFilename, 0, lastindexof(TargetFilename, '\\'))
 | summarize FileCreateCount = countif(EventID == 11),
@@ -267,7 +267,7 @@ Don't hard-code a fixed extension list as the trigger — affiliates rotate exte
 
 **Ransom note drop detection.** Note drop is almost always mass, uniform, and fast — identical name and content into every directory touched, hundreds to thousands of times in minutes. **[ENGINEERING]** -
 
-```
+```text
 Sysmon | where EventID == 11
 | where TargetFilename matches regex @"(?i)(readme|decrypt|recover.?files|how.?to.?decrypt)"
 | summarize NoteCount = count(), DistinctDirs = dcount(TargetFilename) by Image, Computer, bin(TimeGenerated, 5m)
@@ -387,7 +387,7 @@ Ransomware incidents die or survive on communication discipline as much as on to
 
 A working notification log:
 
-```
+```text
 Incident: RAN-2026-0914-MERIDIAN
 Time (UTC) | Party Notified            | Method    | Notified By  | Ack'd By
 14:02      | Legal Counsel (J. Rai)    | Phone     | IC (M. Osei) | Y

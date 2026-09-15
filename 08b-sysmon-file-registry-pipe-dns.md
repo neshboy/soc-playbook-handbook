@@ -95,7 +95,7 @@ Software installs constantly write to the registry — this is unavoidable backg
 
 Normal: an approved software package writing its own uninstall string under `Uninstall` at install time. Suspicious: a value set under `...\Run` pointing to a script interpreter with an encoded argument —
 
-```
+```text
 TargetObject: HKU\S-1-5-21-...\Software\Microsoft\Windows\CurrentVersion\Run\OneDriveSync
 Details: C:\Windows\System32\wscript.exe //B "C:\Users\jsmith\AppData\Roaming\sync.vbs"
 Image: C:\Windows\System32\reg.exe
@@ -145,7 +145,7 @@ Fires on a DNS query, with the requesting process attached — the piece native 
 
 **Normal vs suspicious:** The overwhelming majority of this event is browsers, update services, telemetry endpoints, and CDN lookups — high volume, usually filtered to exclude known-noisy processes and allow-listed domains in mature builds. Suspicious is a query for a domain with a short registration age, a DGA-looking name, or a query issued by a process that has no legitimate reason to be doing DNS resolution at all — `rundll32.exe` or `mshta.exe` resolving `a8x2ndkq.example.com` is a very different signal than `chrome.exe` resolving `cdn.example.com`.
 
-```
+```text
 Image: C:\Windows\System32\rundll32.exe
 QueryName: kq7z9x-update.example.net
 QueryStatus: 0

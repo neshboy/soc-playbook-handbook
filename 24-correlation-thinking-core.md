@@ -50,7 +50,7 @@ If your only detection is "alert when 4625 count > 10 in 5 minutes for one accou
 
 **3. Ordering must be explicit, because co-occurrence alone produces false positives you cannot tune away.** A naive rule:
 
-```
+```text
 alert if within 10 minutes on same host:
     count(4625) > 5
     AND exists(4672)
@@ -59,7 +59,7 @@ alert if within 10 minutes on same host:
 
 This fires just as happily if the sequence is: admin RDPs in normally (4624, 4672, legitimate PowerShell for patching), and *separately*, ten minutes earlier or later, some unrelated account fails to log on five times from a different source entirely. Co-occurrence within a window says nothing about causality. The fix is ordering plus the entity join:
 
-```
+```text
 sequence rule "brute_force_to_privileged_powershell_to_egress":
   step1: 4625 count >= 8 within 5m, same Account Name, same Source Network Address
   step2: 4624 success, same Account Name, same Source Network Address,

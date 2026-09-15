@@ -4,7 +4,7 @@ Every SOC playbook eventually boils down to the same six or seven questions, ask
 
 Here is the flow this section works through, exactly as it should appear pinned above a triage queue or embedded in the playbook itself:
 
-```
+```text
 [ALERT FIRED]
    |
    v

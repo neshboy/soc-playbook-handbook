@@ -28,7 +28,7 @@ Alert fires on a registry value **create** or **modify** event under any of the 
 
 **Canonical registry paths in scope:**
 
-```
+```text
 HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Run
 HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\RunOnce
 HKLM\SOFTWARE\WOW6432Node\Microsoft\Windows\CurrentVersion\Run

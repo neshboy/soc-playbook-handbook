@@ -67,7 +67,7 @@ A scoped, authorized, often third-party-run adversary emulation exercise (freque
 
 **[ENGINEERING]** - The fix had two parts: correct the field mapping in the parser so Ticket Encryption Type populates reliably from live 4769 events, and lower the alert threshold from 15 distinct services to 8 within 10 minutes, since the simulation showed a realistic attack tool comfortably clears 15 in under three minutes — 15 was tuned against guesswork, not against an actual attack run.
 
-```
+```text
 index=security_logs EventID=4769
 | where Ticket_Encryption_Type="0x17"
 | stats dc(Service_Name) as distinct_services, values(Service_Name) as targeted_services by Account_Name, _time span=10m

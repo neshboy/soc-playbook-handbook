@@ -42,7 +42,7 @@ That's the full set stamped on 4624/4625 in this environment. A number outside t
 
 Here's the scenario, written the way it actually lands in a queue:
 
-```
+```text
 EventID: 4624
 LogonType: 10
 Account Name: svc-fin-admin

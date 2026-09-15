@@ -38,7 +38,7 @@ A playbook is not a flowchart for decoration. It's the operational memory of the
 
 Across this book, playbooks are built around the same lifecycle. Not every playbook needs every stage written out in full — a 2-page library entry for a low-fidelity alert might collapse several stages into a sentence — but the stages exist in every real investigation whether you name them or not:
 
-```
+```text
 DETECTION
    → the alert fires, or a hunt hypothesis surfaces a candidate event
 TRIAGE

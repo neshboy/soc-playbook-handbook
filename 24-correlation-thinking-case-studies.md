@@ -25,7 +25,7 @@ This file is a companion to the Correlation Thinking chapter — it doesn't re-e
 **[ANALYST]** - The naive read of 4740's Caller Computer Name says "the attack is coming from HR07, isolate it." Wrong — HR07 is a shared NAT point, not an attacker. Pulling the real client IP means going one hop further, into VPN/RADIUS logs outside the Windows pipeline.
 **[ENGINEERING]** - The join key isn't "same source IP" (useless behind NAT) — it's "same account, spray-window timestamp, followed by a lone success." Something close to:
 
-```
+```text
 4771 where FailureCode=0x18
 | bin _time span=10m
 | stats dc(Account_Name) as sprayed_accounts by ClientAddress, _time
@@ -130,7 +130,7 @@ That join is what turns "noisy lockout storm" into "one compromised account insi
 
 **[ENGINEERING]** - The single most important correlation dimension here is *not* the service name or the binary — it's the same account/Logon ID producing the same New Process Name across multiple hosts inside a tight window. That separates "updater doing its normal thing on one machine" from "someone deploying at scale." A rule shaped like:
 
-```
+```text
 4688 New Process
 | stats values(host) as hosts, dc(host) as host_count by Logon_ID, New_Process_Name, bin(_time, 5m)
 | where host_count > 5

@@ -43,18 +43,18 @@ journalctl _PID=18422
 SSH auth events are written by `sshd` regardless of distro, so the line format is consistent even when the file path isn't.
 
 **Normal successful login:**
-```
+```text
 Sep 14 09:12:03 web01 sshd[14210]: Accepted publickey for deploy_svc from 10.20.4.15 port 51244 ssh2: RSA SHA256:AbCdEf...
 Sep 14 09:12:03 web01 sshd[14210]: pam_unix(sshd:session): session opened for user deploy_svc(uid=1001) by (uid=0)
 ```
 
 **Normal failed login (typo, expired key):**
-```
+```text
 Sep 14 09:11:40 web01 sshd[14209]: Failed publickey for deploy_svc from 10.20.4.15 port 51201 ssh2: RSA SHA256:XyZ123...
 ```
 
 **Brute-force pattern — same source, many usernames, password auth:**
-```
+```text
 Sep 14 03:14:01 web01 sshd[22110]: Failed password for root from 203.0.113.77 port 41022 ssh2
 Sep 14 03:14:02 web01 sshd[22112]: Failed password for admin from 203.0.113.77 port 41030 ssh2
 Sep 14 03:14:04 web01 sshd[22114]: Failed password for oracle from 203.0.113.77 port 41041 ssh2
@@ -72,7 +72,7 @@ Don't assume every noisy source is malicious — vulnerability scanners, misconf
 
 **[ENGINEERING]** - A workable correlation rule, expressed generically for a SIEM query language:
 
-```
+```text
 source = auth_log OR journald(unit=sshd)
 event_action IN ("Failed password", "Invalid user")
 | stats count, dc(username) as distinct_users by src_ip, host, bin(time, 5m)
@@ -87,7 +87,7 @@ Tune the thresholds against your own baseline — a host with SSH exposed to a s
 
 Account creation on Linux is driven by `useradd`/`adduser`, and it's logged through PAM and the audit trail, not just a single line.
 
-```
+```text
 Sep 14 14:02:11 db02 useradd[30011]: new user: name=svc_backup, UID=1002, GID=1002, home=/home/svc_backup, shell=/bin/bash
 Sep 14 14:02:11 db02 useradd[30011]: add 'svc_backup' to group 'sudo'
 ```
@@ -101,18 +101,18 @@ Sep 14 14:02:11 db02 useradd[30011]: add 'svc_backup' to group 'sudo'
 `sudo` logs every invocation whether it succeeds or fails, either to the auth log/secure log or its own `sudo.log` depending on configuration.
 
 **Normal, expected sudo:**
-```
+```text
 Sep 14 10:03:22 web01 sudo:   jsmith : TTY=pts/1 ; PWD=/home/jsmith ; USER=root ; COMMAND=/usr/bin/systemctl restart nginx
 ```
 
 **Suspicious — enumeration and unusual command:**
-```
+```text
 Sep 14 22:47:01 web01 sudo:   jsmith : TTY=pts/3 ; PWD=/tmp ; USER=root ; COMMAND=/bin/bash
 Sep 14 22:47:03 web01 sudo:   jsmith : TTY=pts/3 ; PWD=/tmp ; USER=root ; COMMAND=/usr/bin/find / -perm -4000 -type f
 ```
 
 **Failed sudo attempt (not authorized in sudoers):**
-```
+```text
 Sep 14 22:41:55 web01 sudo:   contractor_amara : user NOT in sudoers ; TTY=pts/2 ; PWD=/home/contractor_amara ; COMMAND=/usr/sbin/visudo
 ```
 

@@ -28,7 +28,7 @@ This is the escalation sibling to *Repeated Login Failures* (IAM-001), and it de
 
 Alert fires when a 4624 (or successful 4768/4776) for a given Account Name occurs within a defined lookback window (default 30 minutes, tune to domain lockout policy) of **N or more** preceding 4625/4771 failures for that same account, with no successful logon in between.
 
-```
+```text
 failures(Account Name) >= 3 in trailing 30m
 AND success(Account Name) occurs
 AND no success(Account Name) occurred earlier in that 30m window
