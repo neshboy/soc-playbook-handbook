@@ -1,0 +1,12 @@
+flowchart LR
+    A[Initial Access<br/>T1566 Phishing] --> B[Execution<br/>4688 Process Created]
+    B --> C[Persistence<br/>T1053 Scheduled Task<br/>T1543 Windows Service]
+    C --> D[Credential Access<br/>T1003.001 LSASS Memory<br/>T1558 Kerberoasting]
+    D --> E[Discovery<br/>Network + Account Enum]
+    E --> F[Lateral Movement<br/>T1021 Remote Services<br/>T1550.002 Pass the Hash]
+    F --> G[Defense Evasion<br/>1102 Log Cleared]
+    G --> H[Exfiltration<br/>T1567 Web Service]
+    H --> I[Backup Destruction<br/>T1490 Inhibit Recovery]
+    I --> J[Encryption<br/>T1486 Data Encrypted]
+    J --> K[Impact<br/>Systems Unavailable]
+    K --> L[Extortion<br/>Ransom + Leak Threat]

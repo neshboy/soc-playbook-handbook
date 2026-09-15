@@ -1,0 +1,18 @@
+flowchart LR
+    T[Trigger: Major incident<br/>or major tech change]
+
+    subgraph Critical Track
+        C[Critical playbook] --> C1[Review every 6 months]
+    end
+
+    subgraph High-Risk Track
+        H[High-risk playbook] --> H1[Review every 6 months]
+    end
+
+    subgraph Standard Track
+        S[Standard playbook] --> S1[Review annually]
+    end
+
+    T -.->|Immediate review| C1
+    T -.->|Immediate review| H1
+    T -.->|Immediate review| S1

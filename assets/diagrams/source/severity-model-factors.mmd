@@ -1,0 +1,16 @@
+flowchart LR
+    A[Asset criticality] --> S{Severity Assessment}
+    B[Identity privilege] --> S
+    C[Threat confidence] --> S
+    D[Observed impact] --> S
+    E[Exploit success] --> S
+    F[Lateral movement] --> S
+    G[Data exposure] --> S
+    H[Persistence] --> S
+    I[Scope] --> S
+
+    S --> R1[Informational]
+    S --> R2[Low]
+    S --> R3[Medium]
+    S --> R4[High]
+    S --> R5[Critical]

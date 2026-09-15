@@ -1,0 +1,12 @@
+flowchart TD
+    A[SOC observes issue] --> B[SOC analyses data]
+    B --> C[SOC proposes change]
+    C --> D[Risk of change explained]
+    D --> E[Client / owner reviews]
+    E --> F{GO or NO GO}
+    F -->|GO| G[Implement change]
+    G --> H[Validate change]
+    H --> I[Monitor]
+    F -->|NO GO| J[Document decision]
+    J --> K[Retain or adjust detection]
+    K --> L[Apply compensating control if required]

@@ -1,0 +1,23 @@
+flowchart LR
+    SOC[SOC Analyst]
+
+    BAO[Business / Application Owner]
+    CS[Client Stakeholder]
+    SM[Senior Management / CISO]
+    LG[Legal]
+
+    SOC -->|Impact scope, remediation ETA| BAO
+    BAO -->|System criticality, business context| SOC
+
+    SOC -->|Incident status updates| CS
+    CS -->|SLA and contract requirements| SOC
+
+    SOC -->|Severity and risk summary| SM
+    SM -->|Priorities, resource approval| SOC
+
+    SOC -.->|Breach and evidence details| LG
+    LG -.->|Regulatory and legal guidance| SOC
+
+    LN[Major incidents only]:::note -.- LG
+
+    classDef note fill:none,stroke:none

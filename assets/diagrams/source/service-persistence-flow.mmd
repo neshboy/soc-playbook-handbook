@@ -1,0 +1,9 @@
+flowchart TD
+    A[7045 or 4697 Service installed] --> B[Inspect image path and service account]
+    B --> C{Unusual path temp or appdata or unexpected account?}
+    C -->|Yes| D[Investigate further]
+    D --> E[Check parent process via Sysmon 1]
+    D --> F[Review T1543 Windows Service technique]
+    F --> G[Escalate to IR if malicious]
+    C -->|No| H[Benign software install]
+    H --> I[Document and close]

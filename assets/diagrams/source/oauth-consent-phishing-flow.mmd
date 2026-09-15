@@ -1,0 +1,9 @@
+flowchart TD
+    A[Attacker registers malicious OAuth app] --> B[Sends consent link disguised as legitimate]
+    B --> C[User clicks link and signs in normally]
+    C --> D[User grants consent to app permissions]
+    D --> E[App receives refresh token]
+    E --> F[Refresh token grants persistent access]
+    F --> G[Attacker accesses mail, files, and data]
+    G --> H[Access continues without user's password]
+    F --> I[Access survives password resets]

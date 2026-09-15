@@ -1,0 +1,21 @@
+flowchart TD
+    A[One Alert / One Topic]
+    A --> B[STAKEHOLDER]
+    A --> C[ANALYST]
+    A --> D[ENGINEERING]
+    A --> E[MANAGEMENT]
+
+    B --> B1[What happened]
+    B --> B2[What risk]
+    B --> B3[What decision]
+
+    C --> C1[What evidence]
+    C --> C2[What logs]
+    C --> C3[What to inspect]
+
+    D --> D1[How detected]
+    D --> D2[What fields, query]
+
+    E --> E1[Escalation path]
+    E --> E2[SLA and ownership]
+    E --> E3[Approval]

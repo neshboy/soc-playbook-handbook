@@ -1,0 +1,11 @@
+flowchart TD
+    A[Phishing email - T1566] --> C[Mailbox compromised]
+    B[Reused/breached credential - T1078] --> C
+    C --> D[Adds forwarding/inbox rule - T1114.003]
+    C --> E[Registers malicious OAuth app - T1550.001]
+    D --> F[Studies invoice and payment threads]
+    E --> F
+    F --> G[Impersonates vendor or executive]
+    G --> H[Fraudulent payment-redirect email sent]
+    H --> I[Victim wires funds to attacker account]
+    I --> J[Financial loss before detection]

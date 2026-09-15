@@ -1,0 +1,11 @@
+sequenceDiagram
+    participant Attacker
+    participant DC
+
+    Attacker->>DC: 4769 request, SPN=svc_sql, RC4
+    DC-->>Attacker: TGS reply
+    Note over Attacker: Offline crack
+    Note over Attacker: No more AD activity
+    Attacker->>DC: 4769 request, SPN=svc_backup
+    Note over DC: High volume RC4 requests
+    Note over DC: One source

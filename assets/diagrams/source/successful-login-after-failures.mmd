@@ -1,0 +1,11 @@
+sequenceDiagram
+    participant Source
+    participant DC as Domain Controller
+    Source->>DC: 4625 failed logon
+    Source->>DC: 4625 failed logon
+    Source->>DC: 4625 failed logon
+    DC-->>Source: 4624 successful logon
+    Note over DC: 4672 special privileges assigned
+    Note over DC: Decision point:
+    Note over DC: true positive or
+    Note over DC: expected retry after typo?

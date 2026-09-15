@@ -1,0 +1,8 @@
+flowchart LR
+    A[Connection T+0] --> B[idle 60s]
+    B --> C[Connection T+60s]
+    C --> D[idle 60s]
+    D --> E[Connection T+60s]
+    E --> F[idle 60s]
+    F --> G[Connection T+60s]
+    G --> H[["regular interval to same destination is the signal, not any single connection"]]

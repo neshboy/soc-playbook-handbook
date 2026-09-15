@@ -1,0 +1,17 @@
+flowchart TD
+    A[Detection] --> B[Alert]
+    B --> C[Triage]
+    C --> D[Enrichment]
+    D --> E[Correlation]
+    E --> F[Investigation]
+    F --> G[Validation]
+    G --> H[Decision]
+    H --> I[Escalation]
+    I --> J[Containment]
+    J --> K[Eradication]
+    K --> L[Recovery]
+    L --> M[Closure]
+    M --> N[Lessons Learned]
+    N --> O[Detection Improvement]
+    O --> P[Playbook Improvement]
+    P -->|feedback loop| A

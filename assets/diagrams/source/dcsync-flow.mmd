@@ -1,0 +1,7 @@
+flowchart TD
+    A[Attacker compromises account with<br/>Replicating Directory Changes rights] --> B[Issues DCSync directory<br/>replication request]
+    B --> C[Request impersonates a<br/>Domain Controller]
+    C --> D[Extracts password hashes<br/>for any account]
+    D --> E[Includes krbtgt account hash]
+    E --> F[Enables Golden Ticket forging]
+    F --> G[Persistent domain-wide<br/>ticket forgery access]

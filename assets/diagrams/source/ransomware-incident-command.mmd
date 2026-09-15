@@ -1,0 +1,11 @@
+flowchart TD
+    A[SOC detects and declares incident] --> B[Incident Commander assigned]
+    B --> C[Legal / Compliance]
+    B --> D[Senior Management]
+    B --> E[Business / Application Owners]
+    B --> F[Backup / Infrastructure Team]
+    C --> G{Network isolation decision}
+    D --> G
+    E --> G
+    F --> G
+    G --> H[Recovery sequencing]

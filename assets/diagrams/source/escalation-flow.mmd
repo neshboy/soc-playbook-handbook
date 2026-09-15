@@ -1,0 +1,28 @@
+flowchart LR
+    L1[Tier 1 Analyst]
+    L2[Tier 2 Analyst]
+    L3[Tier 3 / Detection Engineer]
+    MGR[SOC Manager]
+    CISO[Client / CISO]
+
+    T1[Gather More Telemetry]
+    T2[Gather More Telemetry]
+    T3[Gather More Telemetry]
+    T4[Gather More Telemetry]
+
+    L1 -->|Escalate| L2
+    L2 -->|Escalate| L3
+    L3 -->|Escalate| MGR
+    MGR -->|Escalate| CISO
+
+    L1 -->|Insufficient evidence| T1
+    T1 --> L1
+
+    L2 -->|Insufficient evidence| T2
+    T2 --> L2
+
+    L3 -->|Insufficient evidence| T3
+    T3 --> L3
+
+    MGR -->|Insufficient evidence| T4
+    T4 --> MGR

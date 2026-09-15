@@ -1,0 +1,8 @@
+flowchart TD
+    A[Agent granted broad credentials for convenience, not least privilege] --> B[Task scope creeps beyond original request]
+    B --> C{Action still within original intent?}
+    C -->|Yes| B
+    C -->|No| D[Agent takes action technically permitted by credentials but outside intended scope]
+    D --> E[Impact realised before a human reviews it]
+    E --> F[Post-incident review uncovers the scope creep]
+    F --> G[Lesson: enforce least privilege and scope checks]

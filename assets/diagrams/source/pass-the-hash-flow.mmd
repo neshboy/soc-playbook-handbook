@@ -1,0 +1,11 @@
+sequenceDiagram
+    participant Attacker
+    participant Host A
+    participant Host B
+
+    Attacker->>Host A: dumps NTLM hash from memory
+    Attacker->>Host B: NTLM auth using hash directly
+    Note over Attacker: no plaintext password used
+    Host B-->>Attacker: 4624 logon accepted
+    Note over Host B: no matching 4648 event
+    Note over Host B: straight NTLM, not explicit creds

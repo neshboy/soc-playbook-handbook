@@ -1,0 +1,8 @@
+flowchart TD
+    A["08:13:02 - 4625 Failed logon"] --> B["08:13:05 - 4625 Failed logon"]
+    B --> C["08:13:08 - 4625 Failed logon"]
+    C --> D["08:13:15 - 4624 Successful logon"]
+    D --> E["08:13:15 - 4672 Special privilege"]
+    E --> F["08:13:21 - 4688 powershell.exe"]
+    F --> G["08:13:22 - 4104 Encoded PowerShell"]
+    G --> H["08:13:25 - Sysmon 3 Outbound conn"]

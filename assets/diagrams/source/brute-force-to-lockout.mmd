@@ -1,0 +1,14 @@
+sequenceDiagram
+    participant Attacker
+    participant DC as Domain Controller
+
+    Attacker->>DC: Bad password attempt (4625)
+    DC-->>Attacker: Logon failure
+    Attacker->>DC: Bad password attempt (4625)
+    DC-->>Attacker: Logon failure
+    Attacker->>DC: Repeated attempts (4625 x many)
+    DC-->>Attacker: Still failing
+    Note over DC: Lockout threshold reached (4740)
+    Note over DC: Account now locked out
+    Note over DC: Caller Computer Name field
+    Note over DC: points to real source host

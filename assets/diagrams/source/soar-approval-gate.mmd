@@ -1,0 +1,9 @@
+flowchart LR
+    A[Alert] --> B[Automated enrichment:<br/>IP/hash/geo/asset/user lookup]
+    B --> C[Case created]
+    C --> D{Sensitive action?<br/>Disable exec account or<br/>isolate critical server}
+    D -->|Yes| E[Stage action +<br/>require human approval]
+    E --> F{Approved?}
+    F -->|Yes| G[Execute action]
+    F -->|No| H[Action rejected/closed]
+    D -->|No| I[Execute automatically]

@@ -1,0 +1,13 @@
+sequenceDiagram
+    participant Attacker
+    participant HostA as Host A
+    participant HostB as Host B
+
+    Attacker->>HostA: extracts Kerberos ticket
+    Note over HostA: ticket pulled from memory
+    Attacker->>HostB: injects stolen ticket
+    Note over HostB: new logon session created
+    HostB-->>Attacker: ticket accepted
+    Note over HostB: reuses original rights
+    Note over HostB: lifetime/host mismatch
+    Note over HostB: is the tell

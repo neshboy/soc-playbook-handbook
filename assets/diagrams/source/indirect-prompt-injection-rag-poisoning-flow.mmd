@@ -1,0 +1,5 @@
+flowchart TD
+    A[Attacker plants hidden instruction in a document or web page] --> B[Document ingested into RAG knowledge base]
+    B --> D[Poisoned document retrieved into user's context]
+    C[Legitimate user asks an unrelated question] --> D
+    D --> E[Hidden instruction executes on the user's behalf]

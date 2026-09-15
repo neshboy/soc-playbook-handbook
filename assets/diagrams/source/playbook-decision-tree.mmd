@@ -1,0 +1,14 @@
+flowchart TD
+    A[Alert fired] --> B{Is activity expected?}
+    B -->|Yes| C[Validate approved activity]
+    B -->|No| D{Is source trusted?}
+    D -->|Yes| E[Validate service account]
+    D -->|No| F{Matches known baseline?}
+    F -->|Yes| G[Possible benign positive]
+    F -->|No| H{Supporting malicious evidence?}
+    H -->|Yes| I[Escalate]
+    H -->|No| J[Gather more telemetry]
+    I --> K{Malicious intent confirmed?}
+    J --> K
+    K -->|Yes| L[Incident]
+    K -->|No| M[Monitor or close with evidence]

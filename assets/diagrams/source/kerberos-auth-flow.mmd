@@ -1,0 +1,11 @@
+sequenceDiagram
+    participant Client
+    participant KDC as KDC (Domain Controller)
+    participant Service
+
+    Client->>KDC: AS-REQ
+    KDC-->>Client: AS-REP with TGT (4768)
+    Client->>KDC: TGS-REQ using TGT
+    KDC-->>Client: TGS-REP w/ service ticket (4769)
+    Client->>Service: AP-REQ, presents ticket
+    Note over Service: Grants access if valid

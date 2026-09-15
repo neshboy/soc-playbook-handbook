@@ -1,0 +1,7 @@
+flowchart LR
+    A[User opens document] --> B[Macro or embedded object runs]
+    B --> C[WINWORD.EXE spawns powershell.exe]
+    C --> D[4688 parent/child mismatch]
+    D --> E[Encoded command line -EncodedCommand]
+    E --> F[Download cradle executes]
+    F --> G[Outbound connection to external host]

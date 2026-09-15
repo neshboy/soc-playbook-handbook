@@ -1,0 +1,8 @@
+flowchart TD
+    A[Attacker obtains service account hash] --> B[Forges TGS service ticket for one service]
+    B --> C[Presents forged TGS to target service]
+    C --> D{Service validates ticket locally}
+    D --> E[No check-in with the DC]
+    E --> F[Access granted to that one service]
+    F --> G[Blast radius limited to the single service]
+    E --> H[Harder to detect centrally: no DC ticket log]

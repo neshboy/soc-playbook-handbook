@@ -1,0 +1,17 @@
+flowchart LR
+    DR[Detection Rule]
+    PB[Playbook]
+    RB1[Runbook: Containment]
+    RB2[Runbook: Eradication]
+    RB3[Runbook: Recovery]
+    SOAR[SOAR Workflow]
+    SOP[/SOP: process standards/]
+    IRP[[Incident Response Plan]]
+
+    DR --> PB
+    PB --> RB1
+    PB --> RB2
+    PB --> RB3
+    SOAR -. automates steps of .-> PB
+    SOP -. governs how it is run .-> PB
+    IRP -. governs major incidents .-> PB

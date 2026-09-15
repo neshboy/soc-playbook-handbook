@@ -1,0 +1,6 @@
+flowchart LR
+    A[Untrusted content enters context] --> B(User input or ingested document)
+    B --> C{Model distinguishes instructions from data?}
+    C -->|No - cannot reliably tell| D[Injected instruction treated as command]
+    D --> E[Unintended action occurs]
+    D --> F[Unintended data disclosure occurs]

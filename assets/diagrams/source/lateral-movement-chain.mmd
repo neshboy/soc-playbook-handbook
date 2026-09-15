@@ -1,0 +1,10 @@
+sequenceDiagram
+    participant Attacker
+    participant Host A
+    participant Host B
+
+    Attacker->>Host A: initial foothold
+    Attacker->>Host B: SMB/RDP, reused creds
+    Host B-->>Attacker: 4624 Logon Type 3/10
+    Attacker->>Host B: PsExec-style remote exec
+    Note over Host A,Host B: repeat to Host C

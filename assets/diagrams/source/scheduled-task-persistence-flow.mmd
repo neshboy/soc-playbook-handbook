@@ -1,0 +1,10 @@
+flowchart TD
+    A[4698: Scheduled task created] --> B[Inspect task content XML]
+    B --> C[Review Action / Command field]
+    C --> D{Known admin or software task?}
+    D -->|Yes| E[Benign - close alert]
+    D -->|No| F[Check account context]
+    F --> G[Check destination binary path]
+    G --> H{Binary in temp/user dir or LOLBin?}
+    H -->|Yes| I[Escalate: T1053 Scheduled Task/Job persistence]
+    H -->|No| J[Document and monitor]

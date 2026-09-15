@@ -1,0 +1,14 @@
+flowchart TD
+    A[File uploaded to AI system] --> B{Only parsed, no ingestion?}
+    B -->|Yes| B1[Log and release: no further action]
+    B -->|No| C{Ingested into RAG or KB?}
+    C -->|Yes| C1[Purge from vector store, reindex]
+    C -->|No| D{Model followed embedded instructions?}
+    D -->|Yes| D1[Isolate session, review outputs]
+    D -->|No| E{Agent invoked a tool?}
+    E -->|Yes| E1[Revoke tool tokens, audit actions]
+    E -->|No| F{Sensitive data revealed?}
+    F -->|Yes| F1[Notify DPO, start disclosure review]
+    F -->|No| G{Code executed or external call made?}
+    G -->|Yes| G1[Isolate host, block network egress]
+    G -->|No| H[Close as benign, continue monitoring]

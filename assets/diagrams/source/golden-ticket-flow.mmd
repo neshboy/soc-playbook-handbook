@@ -1,0 +1,11 @@
+flowchart TD
+    A[Attacker compromises a DC or admin account] --> B[Dumps krbtgt account hash via DCSync - T1003.006]
+    B --> C[Forges a TGT offline using krbtgt hash]
+    C --> D[Ticket set to any account and any privilege level]
+    D --> E[Ticket valid for years - T1558.001 Golden Ticket]
+    E --> F{DC validates ticket signature}
+    F -->|Signed with real krbtgt key| G[Ticket trusted by any DC in domain]
+    G --> H[Attacker gains persistent access]
+    H --> I[Normal user password reset occurs]
+    I --> J[krbtgt hash unchanged - access still valid]
+    J --> H

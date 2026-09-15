@@ -1,0 +1,31 @@
+flowchart TD
+    M[Master Playbook Template]
+
+    M --> C1[Ownership and Governance]
+    C1 --> C1a[Owner]
+    C1a --> C1b[Approver]
+    C1b --> C1c[Version]
+    C1c --> C1d[Review Dates]
+
+    M --> C2[Detection and Scope]
+    C2 --> C2a[Detection Source]
+    C2a --> C2b[MITRE Mapping]
+    C2b --> C2c[Severity]
+    C2c --> C2d[Data Sources]
+
+    M --> C3[Investigation and Decision]
+    C3 --> C3a[Triage]
+    C3a --> C3b[Enrichment]
+    C3b --> C3c[Decision Points]
+    C3c --> C3d[TP FP Indicators]
+
+    M --> C4[Response and Closure]
+    C4 --> C4a[Escalation]
+    C4a --> C4b[Containment]
+    C4b --> C4c[Approval]
+    C4c --> C4d[Closure Criteria]
+
+    M --> C5[Feedback and Metrics]
+    C5 --> C5a[Tuning]
+    C5a --> C5b[Metrics]
+    C5b --> C5c[Related Playbooks]

@@ -1,0 +1,4 @@
+flowchart LR
+    A[Data on host chunked and encoded] --> B[Encoded chunks placed as DNS subdomain labels]
+    B --> C[Repeated queries to attacker-controlled domain]
+    C --> D[Attacker authoritative DNS server reassembles chunks]

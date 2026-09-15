@@ -1,0 +1,6 @@
+flowchart LR
+    A[4688 process created<br/>powershell.exe -enc flag] --> B[4104 script block logging<br/>reveals decoded content]
+    B --> C[Sysmon 3 network connection<br/>outbound to unfamiliar destination]
+    C --> D{Repeating interval<br/>observed?}
+    D -->|Yes| E[Beacon pattern confirmed]
+    D -->|No| F[Likely one-off connection]

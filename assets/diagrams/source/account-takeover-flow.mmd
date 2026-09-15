@@ -1,0 +1,10 @@
+flowchart TD
+    A[Anomalous sign-in detected] --> B[Check impossible travel]
+    B --> C[Check MFA result]
+    C --> D[Check device/session history]
+    D --> E{Evidence supports compromise?}
+    E -->|Yes| F[Revoke active sessions]
+    F --> G[Force password reset]
+    G --> H[Require MFA re-registration]
+    E -->|No| I[Benign positive]
+    I --> J[Document and close]

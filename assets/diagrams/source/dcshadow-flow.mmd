@@ -1,0 +1,8 @@
+flowchart TD
+    A[Attacker has admin rights] --> B[Registers rogue Domain Controller]
+    B --> C[Pushes malicious replication change]
+    C --> D[e.g. SIDHistory or group membership edit]
+    D --> E[Change replicates to real DCs]
+    E --> F[Rogue DC registration removed]
+    F --> G[Very little standard audit trail left]
+    G --> H[T1207 Rogue Domain Controller - DCShadow]

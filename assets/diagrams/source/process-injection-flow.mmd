@@ -1,0 +1,8 @@
+flowchart LR
+    A[Malicious loader process] --> B[CreateRemoteThread into trusted process]
+    B --> C[Sysmon Event ID 8 logged]
+    C --> D[Injected code runs in trusted process]
+    D --> E[Inherits trusted process identity]
+    D --> F[Inherits trusted network reputation]
+    E --> G[Evades detections trusting process name]
+    F --> G

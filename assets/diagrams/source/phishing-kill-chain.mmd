@@ -1,0 +1,13 @@
+flowchart LR
+    A[Email delivered T1566] --> B{User interacts}
+    B -->|Clicks link, enters creds| C[Credential harvest]
+    B -->|Opens attachment| D[Payload execution]
+    C --> E[Valid Accounts T1078]
+    D --> F[Process Injection T1055]
+    E --> G[Mailbox access]
+    F --> H[Endpoint access]
+    G --> I[Forwarding rule T1114.003]
+    H --> J[Scheduled Task T1053]
+    I --> K[Impact]
+    J --> K[Impact]
+    K --> L[Data Encrypted T1486]

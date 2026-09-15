@@ -1,0 +1,9 @@
+flowchart TD
+    A[Attacker enumerates accounts with<br/>Kerberos pre-auth disabled] --> B[Sends AS-REQ for those accounts<br/>no pre-auth required]
+    B --> C{DC processes AS-REQ}
+    C --> D[DC returns AS-REP encrypted<br/>with account's password hash]
+    D --> E[4768 logged:<br/>Pre-Authentication Type 0]
+    D --> F[Attacker captures AS-REP offline]
+    F --> G[Attacker cracks hash offline<br/>Hashcat / John]
+    G --> H[Plaintext account password recovered]
+    B --> T[T1558.004 AS-REP Roasting]

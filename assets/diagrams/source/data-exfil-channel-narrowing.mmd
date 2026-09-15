@@ -1,0 +1,12 @@
+flowchart TD
+    A[Suspected Data Exfiltration] --> B{DNS query volume/entropy anomalous?}
+    B -->|Yes| B1[DNS Exfil Playbook - T1071.004]
+    B -->|No| C{Proxy/HTTP POST volume anomalous?}
+    C -->|Yes| C1[Web POST Exfil Playbook - T1567]
+    C -->|No| D{Cloud storage/API logs anomalous?}
+    D -->|Yes| D1[Cloud Storage Exfil Playbook - T1567]
+    D -->|No| E{Email attachments/forwarding anomalous?}
+    E -->|Yes| E1[Email Exfil Playbook - T1114.003]
+    E -->|No| F{USB/removable media logs anomalous?}
+    F -->|Yes| F1[Removable Media Exfil Playbook]
+    F -->|No| G[Broaden hunt scope / expand log sources]

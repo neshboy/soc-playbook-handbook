@@ -1,0 +1,8 @@
+flowchart TD
+    A[Impossible travel sign-in detected] --> B[MFA disabled or bypassed]
+    B --> C[Privilege escalation via role/policy chaining]
+    C --> D[Persistence established]
+    D --> D1(New admin account created)
+    D --> D2(New access key generated)
+    D1 --> E[Data or resource access]
+    D2 --> E

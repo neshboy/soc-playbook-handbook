@@ -1,0 +1,8 @@
+flowchart TD
+    A[AI agent granted access to external tools via MCP server] --> B{Tool or server is malicious or compromised}
+    B -->|Yes| C[Agent calls the tool believing it is legitimate]
+    C --> D[Call appears within agent's normal instructions]
+    D --> E[Tool executes with agent's granted privileges]
+    E --> F[Unauthorised action performed using agent's privileges]
+    F --> G[Data exfiltration, resource abuse, or lateral access]
+    B -->|No| H[Tool behaves as intended]
