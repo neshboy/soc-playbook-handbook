@@ -223,7 +223,7 @@ Re-run the hash and reputation lookups against a second source before committing
 | 2 | Followed embedded instructions | Reasoning trace references instructions absent from the user's prompt | Medium-High — agent integrity | T1204 | B |
 | 3 | Accessed external resource | Outbound HTTP/DNS log correlated to file-processing time | Medium — beaconing, SSRF | T1071.004, T1105 | C |
 | 4 | Invoked a connected tool/plugin | Tool-call log, params sourced from file content | Medium-High — tool's blast radius | T1204 (see rows 5-9 for the outcome-specific ID once the effect is known) | D |
-| 5 | Revealed sensitive data | Output diff vs. DLP pattern; RAG retrieval log | High — direct disclosure | T1213 (T1213.002 if SharePoint-sourced); T1552.001 if credential content specifically | E |
+| 5 | Revealed sensitive data | Output diff vs. DLP pattern; RAG retrieval log | Critical — direct disclosure | T1213 (T1213.002 if SharePoint-sourced); T1552.001 if credential content specifically | E |
 | 6 | Executed code | Sandbox log, stdout/stderr capture | High | T1059.001, T1027 | F |
 | 7 | Modified data (document, DB, ticket, repo) | Write-audit log, before/after diff | High — persistence/integrity | T1565.001 (Stored Data Manipulation) | G |
 | 8 | Sent a message on the org's behalf | Outbound message log, recipients, content hash | Critical — reputational | T1567 | H |
@@ -281,8 +281,8 @@ Notify the AI platform owner for any confirmed Path B–I outcome regardless of 
 **[MANAGEMENT]**
 | Severity | Acknowledge | Initial Triage | Containment Decision | Full Resolution |
 |---|---|---|---|---|
-| Critical (Path F–I confirmed) | 10 minutes | 30 minutes | 45 minutes | 4 hours |
-| High (Path B–E confirmed) | 15 minutes | 45 minutes | 90 minutes | 8 business hours |
+| Critical (Path E, F–I confirmed) | 10 minutes | 30 minutes | 45 minutes | 4 hours |
+| High (Path B–D confirmed) | 15 minutes | 45 minutes | 90 minutes | 8 business hours |
 | Low/Medium (Path A, or unconfirmed) | 30 minutes | 2 hours | N/A | 24 business hours |
 
 ## Closure Criteria
