@@ -12,7 +12,7 @@ This is the far end of the mailbox-compromise chain covered elsewhere in this ca
 
 ## Severity/Priority Default
 
-**High / P1** at open. Escalate to **Critical / P0** if the outbound content is itself a credential-phishing or malware payload (secondary-victim risk), if the account belongs to an executive or a shared/departmental mailbox with a large external distribution footprint, or if tenant-wide sending has been throttled/blocked by Microsoft or a downstream mail provider as a result.
+**High / P2** at open. Escalate to **Critical / P1** if the outbound content is itself a credential-phishing or malware payload (secondary-victim risk), if the account belongs to an executive or a shared/departmental mailbox with a large external distribution footprint, or if tenant-wide sending has been throttled/blocked by Microsoft or a downstream mail provider as a result.
 
 ## MITRE ATT&CK Techniques
 

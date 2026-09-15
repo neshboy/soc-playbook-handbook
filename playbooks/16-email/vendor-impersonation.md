@@ -6,7 +6,7 @@
 
 ## Severity / Priority Default
 
-**High / P1** on detection of a suspected impersonation attempt with no confirmed financial action. Escalate to **Critical / P0** immediately if a payment, wire, or ACH change has already been submitted or executed against the fraudulent instructions.
+**High / P2** on detection of a suspected impersonation attempt with no confirmed financial action. Escalate to **Critical / P1** immediately if a payment, wire, or ACH change has already been submitted or executed against the fraudulent instructions.
 
 ## MITRE ATT&CK Techniques
 

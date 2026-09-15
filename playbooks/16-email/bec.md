@@ -6,7 +6,7 @@
 
 ## Severity / Priority Default
 
-**High / P1** at open. Escalate to **Critical / P0** immediately if there is any indication of a pending, in-flight, or already-executed wire transfer, ACH change, or payroll redirection tied to the compromised mailbox.
+**High / P2** at open. Escalate to **Critical / P1** immediately if there is any indication of a pending, in-flight, or already-executed wire transfer, ACH change, or payroll redirection tied to the compromised mailbox.
 
 ## MITRE ATT&CK Techniques
 

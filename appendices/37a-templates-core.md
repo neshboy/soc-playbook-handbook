@@ -29,7 +29,7 @@ Description:
 Objective:                     [what this playbook exists to determine or achieve]
 Business Risk:                  [what happens if this activity goes unnoticed, in business terms]
 Severity:                       [Informational / Low / Medium / High / Critical]
-Priority:                       [P1-P4 or your org's SLA priority scale]
+Priority:                       [P1 (Critical) - P4 (Low); see the Severity scale mapping in TERMINOLOGY-STANDARD.md, or your org's SLA priority scale]
 MITRE ATT&CK:                  [tactic/technique IDs — leave blank rather than guess]
 
 Applicable Systems:             [OS, platform, cloud provider, app tier this playbook covers]
@@ -83,7 +83,7 @@ Revision History:
   |         |            |        |                    |
 ```
 
-**[MANAGEMENT]** - Owner, Technical Owner, and Business Owner are deliberately three separate fields. In practice they're often three different people, and playbooks that collapse them into one "Owner" field tend to rot the moment that person moves teams — nobody left has both the technical context and the risk authority to update it. Next Review Date should be a real calendar entry, not an aspiration; a quarterly review cadence is reasonable for anything above Medium severity.
+**[MANAGEMENT]** - Owner, Technical Owner, and Business Owner are deliberately three separate fields. In practice they're often three different people, and playbooks that collapse them into one "Owner" field tend to rot the moment that person moves teams — nobody left has both the technical context and the risk authority to update it. Next Review Date should be a real calendar entry, not an aspiration; run this at the cadence set in Part 29's review table (tiered by severity — every 6 months for Critical and High, annually for Standard) rather than picking a cadence per playbook.
 
 ---
 

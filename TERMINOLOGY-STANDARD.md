@@ -30,6 +30,8 @@ Not `[Stakeholder]`, not `**STAKEHOLDER:**`, not `(Stakeholder view)`.
 
 Exactly five levels, in this order: Informational, Low, Medium, High, Critical.
 
+Where a playbook or template also carries a numeric priority label, it must bind to this scale as follows and must not be reassigned locally: **Critical = P1, High = P2, Medium = P3, Low = P4** (Informational is typically tracked without a page-now priority at all). Critical/P1 is the ceiling — there is no P0 anywhere in this book.
+
 ## Escalation / approval tiers
 
 **Correction (second pass, applied book-wide):** the original v1 standard specified "L1, L2, L3" as the canonical escalation-tier label. That was wrong - it described a convention the book never actually adopted. An independent book-wide audit found "Tier 1 / Tier 2 / Tier 3" used consistently across 88 files (the dominant, pre-existing convention from the original authoring pass) versus "L1/L2/L3" in only 25 files (introduced by second-pass reviewers correctly-but-mistakenly following the flawed standard as written). Rather than rewrite the 88-file majority, the standard itself is corrected here to match reality, and the 25-file minority has been converted to match.

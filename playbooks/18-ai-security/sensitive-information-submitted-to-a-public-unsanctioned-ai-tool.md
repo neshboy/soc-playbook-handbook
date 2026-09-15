@@ -7,7 +7,7 @@
 **[STAKEHOLDER]** - Employees pasting source code, customer records, contracts, or credentials into consumer-tier AI chatbots hands that data to a third party outside our contracts, retention terms, and jurisdiction — once it's in a prompt history you don't control, you can't un-send it, and depending on the tool's terms of service it may be used to train future models or be discoverable by that vendor's own staff.
 
 ## Severity/Priority Default
-**Medium (P2)** at intake. Escalates to **High (P1)** when the matched content is regulated data (PII/PCI/PHI) at volume, live credentials, unreleased financial/M&A material, or confirmed source code with IP value.
+**Medium (P3)** at intake. Escalates to **High (P2)** when the matched content is regulated data (PII/PCI/PHI) at volume, live credentials, unreleased financial/M&A material, or confirmed source code with IP value.
 
 ## MITRE ATT&CK Technique(s)
 - **T1567** Exfiltration Over Web Service — primary technique; the AI tool's chat/upload interface is the exfiltration channel.

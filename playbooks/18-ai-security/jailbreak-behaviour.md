@@ -9,7 +9,7 @@
 
 ## Severity/Priority Default
 
-**Medium (P2)** at intake for a flagged/blocked attempt with no confirmed bypass. Escalate to **High (P1)** when the safety layer was actually bypassed and the model returned actionable harmful content (working exploit code, functional phishing text, disclosed PII, self-harm/regulated content), or when the same jailbreak payload appears across multiple unrelated accounts within a short window (campaign indicator rather than one curious employee).
+**Medium (P3)** at intake for a flagged/blocked attempt with no confirmed bypass. Escalate to **High (P2)** when the safety layer was actually bypassed and the model returned actionable harmful content (working exploit code, functional phishing text, disclosed PII, self-harm/regulated content), or when the same jailbreak payload appears across multiple unrelated accounts within a short window (campaign indicator rather than one curious employee).
 
 ## MITRE ATT&CK Technique(s)
 

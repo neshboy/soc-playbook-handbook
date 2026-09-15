@@ -8,7 +8,7 @@
 
 ## Severity / Priority Default
 
-**Medium/P2** on detection alone (spoofed/lookalike-domain message flagged or reported, no response yet). Escalate to **High/P1** the moment a user has replied, and to **Critical/P0** if a payment, banking-detail change, gift-card purchase, or bulk PII/payroll disclosure has already occurred or is in flight.
+**Medium/P3** on detection alone (spoofed/lookalike-domain message flagged or reported, no response yet). Escalate to **High/P2** the moment a user has replied, and to **Critical/P1** if a payment, banking-detail change, gift-card purchase, or bulk PII/payroll disclosure has already occurred or is in flight.
 
 ## MITRE ATT&CK Techniques
 
