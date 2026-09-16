@@ -1,0 +1,12 @@
+SIGNAL TO ACTION: The Complete SOC Playbook Handbook. Built for defenders. Free. Public.
+
+A playbook that only works in the tabletop isn't a playbook. The real test is 03:14 on a Saturday, when a Tier 1 analyst covering someone else's shift has to execute it with nobody answering Slack — and "check the IP" or "escalate if suspicious" doesn't survive that test.
+
+From detection rule → decision tree → evidence collection → escalation → severity scoring → automation/SOAR gating → stakeholder communication → governance → tested failure modes.
+
+Inside: Windows Event Log, Sysmon, and Linux evidence references, SIEM query translation, correlation thinking, false-positive engineering, client approval workflows, MITRE ATT&CK mapping, AI-assisted SOC operations, and 160+ individual playbooks across Identity, Endpoint, Network, Web, Email, Cloud, AI Security, and Insider Threat — plus four full end-to-end master playbooks: Ransomware, Malware, Data Exfiltration, and AI Malicious File Upload.
+
+Every playbook runs through the same four lenses — Stakeholder, Analyst, Engineering, Management — and a dedicated chapter documents real ways playbooks break in production, from an automation that fired exactly as designed and still caused an outage, to a decision tree with no branch for a vendor account.
+
+Full PDF: https://raw.githubusercontent.com/neshboy/soc-playbook-handbook/main/SOC_Playbook_Handbook.pdf
+Repo: https://github.com/neshboy/soc-playbook-handbook
