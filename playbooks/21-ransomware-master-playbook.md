@@ -38,7 +38,7 @@ Ransomware defaults to Sev-1 the moment recovery-sabotage or encryption is confi
 
 ## MITRE ATT&CK Kill Chain Map
 
-These stages rarely run in a strict straight line — Defense Evasion can recur at multiple points, and Discovery often continues after Lateral Movement from each new vantage point. The order below reflects what the SOC is most likely to see first, and what tends to follow.
+All technique IDs below are drawn from MITRE ATT&CK (MITRE, "MITRE ATT&CK," MITRE Corporation, accessed 2026: https://attack.mitre.org/ — see appendices/38b-references.md for the full source list). These stages rarely run in a strict straight line — Defense Evasion can recur at multiple points, and Discovery often continues after Lateral Movement from each new vantage point. The order below reflects what the SOC is most likely to see first, and what tends to follow.
 
 | Stage | Primary ATT&CK Technique(s) | Primary Telemetry |
 |---|---|---|
@@ -252,9 +252,9 @@ Sysmon | where EventID in (11, 23) and TimeGenerated > ago(5m)
 
 Don't hard-code a fixed extension list as the trigger — affiliates rotate extensions; volume and fan-out are the durable signal.
 
-**Entropy-spike indicators.** Windows doesn't natively log file-content entropy — EDR/UEBA/FIM territory. Legitimate writes have predictable, lower-entropy distributions; encrypted output is close to statistically random. **[ENGINEERING]** - Tune against known-good compression/backup jobs first (zip, 7z, SQL backups are also high-entropy). Canary/honeyfiles watched for entropy change plus rapid modify-time churn are a cheap tripwire independent of vendor scoring. **[ANALYST]** - Entropy alone isn't proof; correlate with the FileCreate/FileDelete fan-out before calling it **T1486**.
+**Entropy-spike indicators.** Windows doesn't natively log file-content entropy — EDR/UEBA/FIM territory. Legitimate writes have predictable, lower-entropy distributions; encrypted output is close to statistically random. **[ENGINEERING]** - Tune against known-good compression/backup jobs first (zip, 7z, SQL backups are also high-entropy). Canary/honeyfiles watched for entropy change plus rapid modify-time churn are a cheap tripwire independent of vendor scoring. **[ANALYST]** - Entropy alone isn't proof; correlate with the FileCreate/FileDelete fan-out before calling it **T1486** (MITRE, "T1486: Data Encrypted for Impact," MITRE ATT&CK, 2025: https://attack.mitre.org/techniques/T1486/ — see appendices/38b-references.md).
 
-**Shadow copy/recovery sabotage (T1490).** Close to universal — deleting shadow copies and disabling recovery removes the cheap restore path and forces the negotiation:
+**Shadow copy/recovery sabotage (T1490).** Close to universal — deleting shadow copies and disabling recovery removes the cheap restore path and forces the negotiation (MITRE, "T1490: Inhibit System Recovery," MITRE ATT&CK, 2025: https://attack.mitre.org/techniques/T1490/):
 
 | Command pattern | Intent |
 |---|---|

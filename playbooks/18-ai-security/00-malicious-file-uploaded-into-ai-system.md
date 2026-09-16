@@ -63,7 +63,7 @@ Establish, inside one triage cycle, what Aegis Assist actually did with the file
 P3 by default at intake; auto-escalates to P1 the moment any Decision Points row E or F–I is confirmed, or the uploading session held admin-equivalent privilege.
 
 ## MITRE ATT&CK
-No dedicated ATT&CK ID exists for prompt injection itself — MITRE tracks that separately. This playbook maps delivery and *confirmed downstream behavior* to the closest supplied techniques:
+No dedicated ATT&CK ID exists for prompt injection itself — MITRE tracks that separately, under MITRE ATLAS (Adversarial Threat Landscape for Artificial-Intelligence Systems) as AML.T0051, "LLM Prompt Injection" (MITRE, "AML.T0051: LLM Prompt Injection," MITRE ATLAS, 2024: https://github.com/mitre-atlas/atlas-data — see appendices/38b-references.md). This playbook maps delivery and *confirmed downstream behavior* to the closest supplied techniques from mainline MITRE ATT&CK:
 
 - **T1566.001** Phishing: Attachment — email-delivered, then re-uploaded
 - **T1204** User Execution — upload/summarize request triggers agent action
